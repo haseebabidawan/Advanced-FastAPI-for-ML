@@ -1,12 +1,12 @@
 from jose import jwt, JWTError
-from app.core.config import setting
+from core.config import setting
 from datetime import datetime, timedelta, timezone
 
 
 
-def create_token(data:dict, expiry_time=30):
+def create_token(data:dict, expiry_time:int=30):
     load = data.copy()
-    exp = datetime.now(timezone)+ timedelta(minutes=expiry_time)
+    exp = datetime.now(timezone.utc)+ timedelta(minutes=expiry_time)
     load.update({'exp':exp})
     return jwt.encode(load, setting.JWT_SECRET_KEY, setting.JWT_ALGO)
 

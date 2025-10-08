@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.core.monitoring import setup_metrics
-from app.core.middleware import loggingMiddle
-from app.routers import auth,health,predict
+from core.monitoring import setup_metrics
+from core.middleware import loggingMiddle
+from routers import auth,health,predict
 
 
 app = FastAPI(

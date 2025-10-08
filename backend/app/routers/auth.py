@@ -1,5 +1,5 @@
 from fastapi import APIRouter , HTTPException, status
-from app.core.security import create_token
+from core.security import create_token
 
 router = APIRouter()
 

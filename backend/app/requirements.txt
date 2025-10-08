@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-jose[cryptography]
+redis
+prometheus-fastapi-instrumentator
+pydantic
+numpy
+pandas
+scikit-learn
+streamlit

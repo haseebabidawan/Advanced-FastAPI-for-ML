@@ -4,7 +4,7 @@ import logging
 
 class loggingMiddle(BaseHTTPMiddleware):
     async def dispatch(self, request, call_next):
-        logging.INFO(f'Request:{request.method} {request.url}')
+        logging.info(f'Request:{request.method} {request.url}')
         response =  await call_next(request)
-        logging.INFO(f'Response:{response.status_code}')
+        logging.info(f'Response:{response.status_code}')
         return response
