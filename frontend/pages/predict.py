@@ -11,19 +11,21 @@ if "access_token" not in st.session_state:
 st.title("🚗 Car Price Predictor")
 st.markdown("Fill in the car details below to estimate its market value:")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     company = st.text_input("🏢 Company Name", "Toyota")
     year = st.number_input("📅 Manufacture Year", min_value=1990, max_value=2025, value=2018)
     owner = st.selectbox("👤 Owner Type", ["First", "Second", "Third", "Fourth & Above"])
     fuel = st.selectbox("⛽ Fuel Type", ["Petrol", "Diesel", "CNG", "Electric"])
+    
+with col2:
     seller_type = st.selectbox("🏷️ Seller Type", ["Dealer", "Individual", "Trustmark Dealer"])
     transmission = st.selectbox("⚙️ Transmission", ["Manual", "Automatic"])
-
-with col2:
     km_driven = st.number_input("🛣️ Kilometers Driven", min_value=0.0, value=35000.0, step=100.0)
     mileage_mpg = st.number_input("⛽ Mileage (mpg)", min_value=1.0, value=15.5, step=0.5)
+
+with col3:
     engine_cc = st.number_input("🔩 Engine (CC)", min_value=500.0, value=1498.0, step=50.0)
     max_power_bhp = st.number_input("⚡ Max Power (BHP)", min_value=20.0, value=118.0, step=5.0)
     torque_nm = st.number_input("🔧 Torque (Nm)", min_value=50.0, value=145.0, step=5.0)
@@ -51,5 +53,5 @@ if st.button("🔍 Predict Price"):
         result = predict_price(features)
 
     if result:
-        st.success(f"💰 **Predicted Car Price:** {result['predicted_price']} lakhs")
+        st.success(f"💰 **Predicted Car Price:** {result['Predicted_price']} lakhs")
         st.balloons()

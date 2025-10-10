@@ -15,5 +15,6 @@ def create_token(data:dict, expiry_time:int=30):
 def decode_token(token:str):
     try:
         payload = jwt.decode(token=token, key=setting.JWT_SECRET_KEY, algorithms=setting.JWT_ALGO)
+        return payload
     except JWTError:
         return None

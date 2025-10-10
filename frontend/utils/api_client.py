@@ -22,6 +22,9 @@ def predict_price(features: dict):
         return None
     headers = {"Authorization": f"Bearer {token}"}
     response = requests.post(f"{api_base_url}/predict/", json=features, headers=headers)
+    # st.write("Sending JSON:", features)
+    # st.write("Response status:", response.status_code)
+    # st.write("Response body:", response.text)
 
     if response.status_code == 200:
         return response.json()
